@@ -179,9 +179,14 @@ const DocumentView = () => {
           y: signaturePosition.y,
           page: signaturePage,
           fontSize,
+          fontFamily,
+          color,
+          isBold,
+          isUnderline,
         },
         { withCredentials: true }
       );
+
       toast.success("Signature finalized and embedded!");
       navigate("/dashboard");
     } catch (err) {
@@ -337,7 +342,7 @@ const DocumentView = () => {
                   <option value="Georgia">Georgia</option>
                   <option value="Verdana">Verdana</option>
                   <option value="monospace">Monospace</option>
-                  <option value="'Dancing Script', cursive">
+                  <option value="Dancing Script">
                     Dancing Script
                   </option>
                   <option value="'Pacifico', cursive">Pacifico</option>
