@@ -19,7 +19,7 @@ const Dashboard = () => {
       const userRes = await axios.get(
         "https://document-signature-app.onrender.com/api/auth/get-user",
         {
-          withCredentials: include,
+          withCredentials: true,
         }
       );
       setUser(userRes.data.user);
