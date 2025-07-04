@@ -17,7 +17,7 @@ const Dashboard = () => {
   const fetchUserDataAndRequests = useCallback(async () => {
     try {
       const userRes = await axios.get(
-        "http://localhost:3000/api/auth/get-user",
+        "https://document-signature-app.onrender.com/api/auth/get-user",
         {
           withCredentials: true,
         }
@@ -25,7 +25,7 @@ const Dashboard = () => {
       setUser(userRes.data.user);
 
       const requestsRes = await axios.get(
-        "http://localhost:3000/api/signatures/my-requests",
+        "https://document-signature-app.onrender.com/api/signatures/my-requests",
         {
           withCredentials: true,
         }
@@ -54,7 +54,7 @@ const Dashboard = () => {
     try {
       // First, upload the document
       const uploadRes = await axios.post(
-        "http://localhost:3000/api/docs/upload",
+        "https://document-signature-app.onrender.com/api/docs/upload",
         formData,
         {
           headers: {
@@ -67,7 +67,7 @@ const Dashboard = () => {
 
       // Then, create the signature request for the uploaded document
       await axios.post(
-        "http://localhost:3000/api/signatures",
+        "https://document-signature-app.onrender.com/api/signatures",
         {
           documentId,
           x: 50, // Default X position for initial request
@@ -102,7 +102,7 @@ const Dashboard = () => {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:3000/api/auth/logout",
+        "https://document-signature-app.onrender.com/api/auth/logout",
         {},
         { withCredentials: true }
       );
@@ -124,7 +124,7 @@ const Dashboard = () => {
       return; // User cancelled
     }
     try {
-      await axios.delete(`http://localhost:3000/api/docs/${documentId}`, { //
+      await axios.delete(`https://document-signature-app.onrender.com/api/docs/${documentId}`, { //
         withCredentials: true,
       });
       toast.success("Document Deleted", {

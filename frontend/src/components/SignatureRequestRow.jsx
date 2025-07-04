@@ -63,7 +63,7 @@ const handleInnerDeleteClick = () => {
         {/* If signed/rejected, allow viewing the public link (for anyone) */}
         {(request.status === "signed" || request.status === "rejected") && (
           <a
-            href={`http://localhost:3000/api/signatures/public/${request.token}`}
+            href={`https://document-signature-app.onrender.com/api/signatures/public/${request.token}`}
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -65,14 +65,14 @@ const SignDocumentPage = () => {
       try {
         // Fetch signature request details (metadata)
         const detailsRes = await axios.get(
-          `http://localhost:3000/api/signatures/details/${token}`
+          `https://document-signature-app.onrender.com/api/signatures/details/${token}`
         );
         setSignatureRequest(detailsRes.data.signature);
 
         // Set the PDF URL to the public endpoint that serves the actual PDF file
         // This assumes the /api/signatures/public/:token endpoint returns the PDF binary data
         setDocumentPdfUrl(
-          `http://localhost:3000/api/signatures/public/${token}`
+          `https://document-signature-app.onrender.com/api/signatures/public/${token}`
         );
 
         // Set initial signature position if available from the request (e.g., from request.x, request.y)
@@ -124,7 +124,7 @@ const SignDocumentPage = () => {
     }
 
     try {
-      await axios.post("http://localhost:3000/api/signatures/finalize-public", {
+      await axios.post("https://document-signature-app.onrender.com/api/signatures/finalize-public", {
         token,
         action,
         name: signerName,

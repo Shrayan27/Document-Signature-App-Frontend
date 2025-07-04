@@ -17,7 +17,7 @@ const PublicSignerPage = () => {
   const [reason, setReason] = useState("");
 
   useEffect(() => {
-    setDocumentUrl(`http://localhost:3000/api/signatures/public/${token}`);
+    setDocumentUrl(`https://document-signature-app.onrender.com/api/signatures/public/${token}`);
   }, [token]);
 
   const handleSubmit = async () => {
@@ -32,7 +32,7 @@ const PublicSignerPage = () => {
     }
 
     try {
-      await axios.post("http://localhost:3000/api/signatures/finalize-public", {
+      await axios.post("https://document-signature-app.onrender.com/api/signatures/finalize-public", {
         token,
         action,
         name,

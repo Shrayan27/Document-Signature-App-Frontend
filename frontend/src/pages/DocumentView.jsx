@@ -56,26 +56,26 @@ const DocumentView = () => {
     const fetchDocumentAndUser = async () => {
       try {
         const userRes = await axios.get(
-          "http://localhost:3000/api/auth/get-user",
+          "https://document-signature-app.onrender.com/api/auth/get-user",
           {
             withCredentials: true,
           }
         );
         setCurrentUserEmail(userRes.data.user.email);
 
-        const docRes = await axios.get(`http://localhost:3000/api/docs/${id}`, {
+        const docRes = await axios.get(`https://document-signature-app.onrender.com/api/docs/${id}`, {
           withCredentials: true,
         });
 
         setDocumentData(docRes.data);
-        const constructedUrl = `http://localhost:3000/${docRes.data.path.replace(
+        const constructedUrl = `https://document-signature-app.onrender.com/${docRes.data.path.replace(
           /\\/g,
           "/"
         )}`;
         setDocumentUrl(constructedUrl);
 
         const signaturesRes = await axios.get(
-          `http://localhost:3000/api/signatures/my-requests`,
+          `https://document-signature-app.onrender.com/api/signatures/my-requests`,
           { withCredentials: true }
         );
 
@@ -143,7 +143,7 @@ const DocumentView = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/signatures",
+        "https://document-signature-app.onrender.com/api/signatures",
         {
           documentId: documentData._id,
           x: signaturePosition.x,
@@ -171,7 +171,7 @@ const DocumentView = () => {
 
     try {
       await axios.post(
-        "http://localhost:3000/api/signatures/finalize",
+        "https://document-signature-app.onrender.com/api/signatures/finalize",
         {
           signatureId: initialSignatureId,
           signatureText,
