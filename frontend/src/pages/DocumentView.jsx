@@ -58,7 +58,7 @@ const DocumentView = () => {
         const userRes = await axios.get(
           "https://document-signature-app.onrender.com/api/auth/get-user",
           {
-            withCredentials: true,
+            withCredentials: include,
           }
         );
         setCurrentUserEmail(userRes.data.user.email);
